@@ -1,0 +1,11 @@
+ext {
+    // module是否独立运行
+    isBuildModule = false
+
+    android = [
+            compileSdkVersion: 33,
+            minSdkVersion    : 23,
+            targetSdkVersion : 33
+
+    ]
+}
