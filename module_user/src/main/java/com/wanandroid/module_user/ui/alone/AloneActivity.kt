@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.doreamon.treasure.base.BaseActivity
 import com.doreamon.treasure.base.BaseViewModel
 import com.wanandroid.module_base.arouter.api.ModuleMineAPI
-import com.wanandroid.module_user.R
+import com.wanandroid.module_base.R
 
 /**
  * @author wzh
