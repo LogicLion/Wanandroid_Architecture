@@ -1,6 +1,6 @@
 package com.wanandroid.module_main.net
 
-import com.wanandroid.module_main.ext.netRequest
+import com.wanandroid.module_base.ext.netRequest
 
 /**
  * @author wzh

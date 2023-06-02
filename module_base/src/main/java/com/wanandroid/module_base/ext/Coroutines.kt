@@ -1,4 +1,4 @@
-package com.wanandroid.module_main.ext
+package com.wanandroid.module_base.ext
 
 import com.doreamon.treasure.entity.BusinessException
 import com.wanandroid.module_base.entity.NetResult
