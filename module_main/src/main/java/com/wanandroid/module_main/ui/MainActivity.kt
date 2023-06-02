@@ -3,11 +3,12 @@ package com.wanandroid.module_main.ui
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.doreamon.treasure.base.BaseActivity
-import com.doreamon.treasure.base.BaseViewModel
+import com.wanandroid.module_base.base.BaseActivity
+import com.wanandroid.module_base.base.BaseViewModel
 import com.wanandroid.module_base.arouter.api.ModuleMineAPI
 import com.wanandroid.module_main.R
 import com.wanandroid.module_main.databinding.MainActivityMainBinding
+import com.wanandroid.module_main.ui.home.HomeFragment
 
 /**
  * @author wzh

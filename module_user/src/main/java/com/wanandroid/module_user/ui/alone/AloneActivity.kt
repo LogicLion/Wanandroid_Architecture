@@ -1,8 +1,8 @@
 package com.wanandroid.module_user.ui.alone
 
 import android.os.Bundle
-import com.doreamon.treasure.base.BaseActivity
-import com.doreamon.treasure.base.BaseViewModel
+import com.wanandroid.module_base.base.BaseActivity
+import com.wanandroid.module_base.base.BaseViewModel
 import com.wanandroid.module_base.arouter.api.ModuleMineAPI
 import com.wanandroid.module_base.R
 

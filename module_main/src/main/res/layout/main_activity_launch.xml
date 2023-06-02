@@ -15,6 +15,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:padding="1.5dp"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             android:stateListAnimator="@animator/btn_press_animator"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

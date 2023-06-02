@@ -3,7 +3,11 @@
     package="com.wanandroid.module_main">
 
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application>
+
+        <meta-data android:value="ApplicationDelegate" android:name="com.wanandroid.module_main.base.MainApp"/>
+
         <activity android:name=".ui.LaunchActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">

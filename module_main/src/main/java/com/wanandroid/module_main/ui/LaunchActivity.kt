@@ -4,8 +4,8 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
-import com.doreamon.treasure.base.BaseActivity
-import com.doreamon.treasure.base.BaseViewModel
+import com.wanandroid.module_base.base.BaseActivity
+import com.wanandroid.module_base.base.BaseViewModel
 import com.doreamon.treasure.ext.startTargetActivity
 import com.doreamon.treasure.utils.dip2px
 import com.google.android.material.imageview.ShapeableImageView

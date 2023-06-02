@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wanandroid.module_main">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <!--alone里的application需要指定icon和theme-->
     <application
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:label="@string/main_app_name">
+
+        <meta-data android:value="ApplicationDelegate" android:name="com.wanandroid.module_main.base.MainApp"/>
+
         <activity
             android:name=".ui.LaunchActivity"
             android:exported="true"

@@ -1,8 +1,8 @@
 package com.wanandroid.module_user
 
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.doreamon.treasure.base.BaseFragment
-import com.doreamon.treasure.base.BaseViewModel
+import com.wanandroid.module_base.base.BaseFragment
+import com.wanandroid.module_base.base.BaseViewModel
 import com.wanandroid.module_base.arouter.api.ModuleMineAPI
 
 /**
