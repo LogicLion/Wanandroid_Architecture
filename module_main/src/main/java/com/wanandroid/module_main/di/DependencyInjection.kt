@@ -2,10 +2,10 @@ package com.wanandroid.module_main.di
 
 import com.orhanobut.logger.Logger
 import com.wanandroid.module_base.constant.BASE_URL
-import com.wanandroid.module_main.BuildConfig
 import com.wanandroid.module_main.net.LoggingInterceptor
 import com.wanandroid.module_main.net.MainRepository
 import com.wanandroid.module_main.net.NetService
+import com.wanandroid.module_main.ui.home.HomeViewModel
 import okhttp3.OkHttpClient
 import okhttp3.internal.platform.Platform
 import org.koin.core.module.Module
@@ -77,6 +77,10 @@ val netModule: Module = module {
  */
 val repositoryModule: Module = module {
     factory { MainRepository(get()) }
+}
+
+val viewModelModule: Module = module {
+    factory { HomeViewModel(get()) }
 }
 
 /** 日志打印接口 */

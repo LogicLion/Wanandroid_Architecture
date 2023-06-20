@@ -5,6 +5,7 @@ import android.content.Context
 import com.doreamon.treasure.base.ApplicationDelegate
 import com.wanandroid.module_main.di.netModule
 import com.wanandroid.module_main.di.repositoryModule
+import com.wanandroid.module_main.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -25,7 +26,7 @@ class MainApp : ApplicationDelegate {
         startKoin {
             androidLogger()
             androidContext(application)
-            modules(netModule,repositoryModule)
+            modules(netModule,repositoryModule,viewModelModule)
         }
 
 

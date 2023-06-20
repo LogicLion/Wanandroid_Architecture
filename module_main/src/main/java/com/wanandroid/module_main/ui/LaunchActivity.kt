@@ -48,7 +48,6 @@ class LaunchActivity : BaseActivity<BaseViewModel>() {
 
             startTargetActivity<MainActivity>()
 
-
             finish()
         }
 

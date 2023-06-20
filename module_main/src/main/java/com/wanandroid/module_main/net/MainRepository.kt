@@ -6,9 +6,13 @@ import com.wanandroid.module_base.ext.netRequest
  * @author wzh
  * @date 2023/5/30
  */
-class MainRepository (private val netService: NetService){
+class MainRepository(private val netService: NetService) {
 
     suspend fun getHomepageBannerList() = netRequest {
         netService.getHomepageBannerList()
+    }
+
+    suspend fun getHomepageArticleList() = netRequest {
+        netService.getHomepageArticleList(0)
     }
 }

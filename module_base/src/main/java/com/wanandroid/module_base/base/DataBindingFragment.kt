@@ -2,6 +2,7 @@ package com.wanandroid.module_base.base
 
 import android.os.Bundle
 import android.util.Log
+import android.util.SparseArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,15 +12,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.doreamon.treasure.BR
-import java.lang.reflect.ParameterizedType
-import java.util.*
 
 /**
  * @author wzh
  * @date 2022/2/23
  */
-abstract class DataBindingFragment<VM : BaseViewModel> :Fragment() {
+abstract class DataBindingFragment : Fragment() {
     private lateinit var mActivityProvider: ViewModelProvider
 
     /** 根布局对象 */
@@ -33,29 +31,36 @@ abstract class DataBindingFragment<VM : BaseViewModel> :Fragment() {
 
     protected val TAG = this.javaClass.simpleName
 
-    private lateinit var vm: VM
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 保存当前 Context 对象
         mContext = requireActivity()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+    protected abstract fun getDataBindingConfig(): DataBindingConfig
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         if (null == rootView) {
-            // 初始化 DataBinding
-            mBinding = DataBindingUtil.inflate(inflater, setupLayoutId(), container, false)
 
-            // 绑定生命周期管理
-            mBinding.lifecycleOwner = this
-
-            // 绑定 ViewModel
-            val className = Objects.requireNonNull(javaClass.genericSuperclass)
-            if (className is ParameterizedType && className.actualTypeArguments.isNotEmpty()) {
-                val vmClass = className.actualTypeArguments[0] as Class<VM>
-                vm = getViewModel(vmClass)
-                mBinding.setVariable(BR.viewModel, vm)
+            val dataBindingConfig = getDataBindingConfig()
+            val binding: ViewDataBinding =
+                DataBindingUtil.inflate(inflater, dataBindingConfig.layout, container, false)
+            binding.lifecycleOwner = this
+            binding.setVariable(
+                dataBindingConfig.vmVariableId,
+                dataBindingConfig.stateViewModel
+            )
+            val bindingParams: SparseArray<*> = dataBindingConfig.getBindingParams()
+            for (i in 0 until bindingParams.size()) {
+                binding.setVariable(bindingParams.keyAt(i), bindingParams.valueAt(i))
             }
+            mBinding = binding
 
             rootView = mBinding.root
 
@@ -72,12 +77,6 @@ abstract class DataBindingFragment<VM : BaseViewModel> :Fragment() {
         return mBinding as T
     }
 
-    fun getViewModel(): VM {
-        if (!::vm.isInitialized) {
-            Log.e(TAG, "未绑定viewModel")
-        }
-        return vm
-    }
 
     protected open fun <T : ViewModel> getViewModel(modelClass: Class<T>): T {
         if (!::mActivityProvider.isInitialized) {
@@ -86,10 +85,6 @@ abstract class DataBindingFragment<VM : BaseViewModel> :Fragment() {
         return mActivityProvider[modelClass]
     }
 
-    /**
-     * 布局id,ViewModel在布局里绑定的id请统一设置成"vm"
-     */
-    protected abstract fun setupLayoutId(): Int
 
     /**
      * 初始化布局

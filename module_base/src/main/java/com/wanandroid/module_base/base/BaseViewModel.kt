@@ -16,7 +16,7 @@ import org.koin.core.component.KoinComponent
  * @author wzh
  * @date 2021/12/9
  */
-open class BaseViewModel : ViewModel() , KoinComponent{
+open class BaseViewModel : ViewModel(), KoinComponent {
 
     protected val TAG = this.javaClass.simpleName
 
@@ -79,6 +79,8 @@ open class BaseViewModel : ViewModel() , KoinComponent{
             }
         }
     }
+
+
 
     /**
      * 默认异常处理
