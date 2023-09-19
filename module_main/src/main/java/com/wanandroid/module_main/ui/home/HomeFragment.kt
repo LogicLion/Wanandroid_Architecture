@@ -14,6 +14,7 @@ import org.koin.android.ext.android.inject
 class HomeFragment : BaseFragment() {
 
     val viewModel: HomeViewModel by inject()
+
     override fun getDataBindingConfig() =
         DataBindingConfig(R.layout.main_fragment_home, BR.viewModel, viewModel)
 
@@ -43,6 +44,13 @@ class HomeFragment : BaseFragment() {
             if (it) viewModel.requestHomeData()
         }
 
+        articleAdapter.loadMoreModule.setOnLoadMoreListener {
+            viewModel.requestHomeArticleList()
+        }
+        articleAdapter.loadMoreModule.isAutoLoadMore = true
+        //当自动加载开启，同时数据不满一屏时，是否继续执行自动加载更多(默认为true)
+        articleAdapter.loadMoreModule.isEnableLoadMoreIfNotFullPage = false
+
         // getViewLifeCycleOwner 是 2020 年新增的特性，
         // 主要是为了解决 getView() 的生命长度 比 fragment 短（仅存活于 onCreateView 之后和 onDestroyView 之前），
         // 导致某些时候 fragment 其他成员还活着，但 getView() 为 null 的 生命周期安全问题，
@@ -50,8 +58,11 @@ class HomeFragment : BaseFragment() {
         // Activity 则不用改变。
         viewModel.homeEntity.observe(viewLifecycleOwner) {
             viewModel.isRefreshing.value = false
-            bannerAdapter.setList(it.bannerEntity)
-            articleAdapter.setList(it.articleEntity)
+            bannerAdapter.setList(it)
+        }
+
+        viewModel.articleListEntity.observe(viewLifecycleOwner) {
+            articleAdapter.setList(it)
         }
 
     }

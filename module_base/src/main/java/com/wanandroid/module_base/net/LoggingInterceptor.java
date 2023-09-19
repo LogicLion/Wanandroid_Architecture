@@ -1,4 +1,4 @@
-package com.wanandroid.module_main.net;
+package com.wanandroid.module_base.net;
 
 import android.util.Log;
 
@@ -9,7 +9,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
-import com.wanandroid.module_main.BuildConfig;
+import com.wanandroid.module_base.BuildConfig;
 
 import java.io.EOFException;
 import java.io.IOException;

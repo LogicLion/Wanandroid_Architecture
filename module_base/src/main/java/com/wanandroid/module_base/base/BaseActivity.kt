@@ -8,13 +8,12 @@ import android.os.Bundle
  * @author wzh
  * @date 2021/12/9
  */
-abstract class BaseActivity<VM : BaseViewModel> : DataBindingActivity<VM>() {
+abstract class BaseActivity : DataBindingActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         setScreenOrientation()
         super.onCreate(savedInstanceState)
-        val viewModel = getViewModel()
 //        viewModel.isLoading.observe(this, {
 //            if (it) {
 //                loadDialog.show()

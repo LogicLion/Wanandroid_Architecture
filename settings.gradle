@@ -21,6 +21,5 @@ rootProject.name = "WanAndroid-Architecture"
 include ':app'
 include ':lib_common'
 include ':module_main'
-
 include ':module_base'
 include ':module_user'

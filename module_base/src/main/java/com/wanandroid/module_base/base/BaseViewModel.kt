@@ -4,6 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.doreamon.treasure.entity.AlertDialogModel
+import com.doreamon.treasure.ext.toast
+import com.wanandroid.module_base.ext.handleNetException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -19,6 +21,9 @@ import org.koin.core.component.KoinComponent
 open class BaseViewModel : ViewModel(), KoinComponent {
 
     protected val TAG = this.javaClass.simpleName
+
+    /** 界面跳转控制 */
+    val uiNavigationData = MutableLiveData<String>()
 
     /** 加载框显示控制 */
     val isLoading = MutableLiveData<Boolean>()
@@ -81,13 +86,34 @@ open class BaseViewModel : ViewModel(), KoinComponent {
     }
 
 
+    inline fun launchRequest(
+        crossinline block: suspend CoroutineScope.() -> Unit,
+        crossinline onFail: (Exception) -> Unit = { defaultFailedBlock(it) },
+        crossinline onComplete: () -> Unit = {}
+    ) {
+        viewModelScope.launch(exceptionHandler) {
+            try {
+                isLoading.value = true
+                block.invoke(this)
+            } catch (e: Exception) {
+                onFail.invoke(e)
+            } finally {
+                onComplete.invoke()
+                isLoading.value = false
+            }
+        }
+    }
+
+
+
+
 
     /**
      * 默认异常处理
      */
     fun defaultFailedBlock(e: Exception) {
 
-//        e.handleNetException().toast()
+        e.handleNetException().toast()
     }
 
 

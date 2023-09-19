@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.alibaba.android.arouter.launcher.ARouter
 
 /**
  * @author wzh
@@ -63,6 +64,11 @@ abstract class DataBindingFragment : Fragment() {
             mBinding = binding
 
             rootView = mBinding.root
+
+            // 界面跳转
+            dataBindingConfig.stateViewModel?.uiNavigationData?.observe(viewLifecycleOwner) { path ->
+                ARouter.getInstance().build(path).navigation(mContext)
+            }
 
             // 初始化布局
             initView()

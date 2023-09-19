@@ -7,7 +7,11 @@ import androidx.lifecycle.ViewModel
  * @author wzh
  * @date 2023/6/2
  */
-class DataBindingConfig(val layout: Int, val vmVariableId: Int, val stateViewModel: ViewModel?) {
+class DataBindingConfig(
+    val layout: Int,
+    val vmVariableId: Int = -1,
+    val stateViewModel: BaseViewModel? = null
+) {
 
 
     private val bindingParams: SparseArray<Any> = SparseArray<Any>()

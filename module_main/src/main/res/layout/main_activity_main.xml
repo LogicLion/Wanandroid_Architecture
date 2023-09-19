@@ -21,8 +21,8 @@
             android:background="@color/white"
             android:theme="@style/main_BottomNavigationViewTextSize"
             app:itemIconSize="22dp"
-            app:itemIconTint="@drawable/selector_main_nav_tab"
-            app:itemTextColor="@drawable/selector_main_nav_tab"
+            app:itemIconTint="@drawable/main_selector_main_nav_tab"
+            app:itemTextColor="@drawable/main_selector_main_nav_tab"
             app:labelVisibilityMode="labeled"
             app:layout_constraintBottom_toBottomOf="parent"
             app:menu="@menu/main_menu_bottom" />

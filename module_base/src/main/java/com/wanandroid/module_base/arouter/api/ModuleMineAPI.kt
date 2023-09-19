@@ -11,6 +11,16 @@ object ModuleMineAPI {
 
     const val ROUTER_MINE_MINE_FRAGMENT = "/mine/MineFragment"
 
+    /**
+     * 登录页[LoginActivity]
+     */
+    const val ROUTER_PATH_LOGIN = "/user/login"
+
+    /**
+     * 用户资料页[UserInfoActivity]
+     */
+    const val ROUTER_PATH_USER_INFO = "/user/userInfo"
+
     fun getMineFragment(): Fragment {
         return ARouter.getInstance().build(ROUTER_MINE_MINE_FRAGMENT).navigation() as Fragment
     }

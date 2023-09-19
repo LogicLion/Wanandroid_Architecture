@@ -3,6 +3,11 @@
     package="com.wanandroid.module_user">
 
     <application>
+        <meta-data
+            android:name="com.wanandroid.module_user.base.UserApp"
+            android:value="ApplicationDelegate" />
+        <activity android:name=".ui.login.LoginActivity"/>
+        <activity android:name=".ui.mine.UserInfoActivity"/>
 
     </application>
 

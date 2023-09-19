@@ -1,4 +1,4 @@
-package com.wanandroid.module_main.binding_adapter
+package com.wanandroid.module_base.binding_adapter
 
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
@@ -14,7 +14,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 object SwipeRefreshLayoutBindingAdapter {
 
     @JvmStatic
-    @BindingAdapter("app:bind_swipeRefreshLayout_refreshing")
+    @BindingAdapter("bind_swipeRefreshLayout_refreshing")
     fun setSwipeRefreshLayoutRefreshing(
         swipeRefreshLayout: SwipeRefreshLayout,
         newValue: Boolean
@@ -28,7 +28,7 @@ object SwipeRefreshLayoutBindingAdapter {
      */
     @JvmStatic
     @BindingAdapter(
-        "app:bind_swipeRefreshLayout_refreshingAttrChanged",
+        "bind_swipeRefreshLayout_refreshingAttrChanged",
         requireAll = false
     )
     fun setOnRefreshListener(
@@ -43,8 +43,8 @@ object SwipeRefreshLayoutBindingAdapter {
 
     @JvmStatic
     @InverseBindingAdapter(
-        attribute = "app:bind_swipeRefreshLayout_refreshing",
-        event = "app:bind_swipeRefreshLayout_refreshingAttrChanged"   // 2 【注意！】
+        attribute = "bind_swipeRefreshLayout_refreshing",
+        event = "bind_swipeRefreshLayout_refreshingAttrChanged"   // 2 【注意！】
     )
     fun isSwipeRefreshLayoutRefreshing(swipeRefreshLayout: SwipeRefreshLayout): Boolean =
         swipeRefreshLayout.isRefreshing

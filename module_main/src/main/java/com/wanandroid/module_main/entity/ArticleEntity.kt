@@ -49,6 +49,7 @@ data class ArticleEntity(
     val id: String? = "",
     val link: String? = "",
     val niceDate: String? = "",
+    val shareUser: String? = "",
     val origin: String? = "",
     val originId: String? = "",
     val prefix: String? = "",

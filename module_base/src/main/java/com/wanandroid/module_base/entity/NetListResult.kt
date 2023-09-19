@@ -15,7 +15,7 @@ import java.io.Serializable
  * @param datas 列表数据
  */
 data class NetListResult<T>(
-    val curPage: String? = "",
+    val curPage: Int = 0,
     val offset: String? = "",
     val pageCount: String? = "",
     val size: String? = "",

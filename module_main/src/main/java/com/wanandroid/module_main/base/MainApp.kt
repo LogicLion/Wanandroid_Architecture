@@ -3,12 +3,10 @@ package com.wanandroid.module_main.base
 import android.app.Application
 import android.content.Context
 import com.doreamon.treasure.base.ApplicationDelegate
-import com.wanandroid.module_main.di.netModule
+import com.wanandroid.module_main.di.netService
 import com.wanandroid.module_main.di.repositoryModule
 import com.wanandroid.module_main.di.viewModelModule
-import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
-import org.koin.core.context.startKoin
+import org.koin.mp.KoinPlatform.getKoin
 
 /**
  * @author wzh
@@ -22,14 +20,7 @@ class MainApp : ApplicationDelegate {
 
     override fun onCreate(application: Application) {
 
-        //初始化koin
-        startKoin {
-            androidLogger()
-            androidContext(application)
-            modules(netModule,repositoryModule,viewModelModule)
-        }
-
-
+        getKoin().loadModules(listOf(netService, repositoryModule, viewModelModule))
     }
 
 

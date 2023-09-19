@@ -6,5 +6,5 @@
         android:color="@color/color_primary"/>          <!-- pressed颜色 -->
     <item android:state_focused="true"
         android:color="@color/color_primary"/>          <!-- focused颜色 -->
-    <item android:color="@color/main_color_gray_999999"/>    <!-- default颜色 -->
+    <item android:color="@color/color_gray_999999"/>    <!-- default颜色 -->
 </selector>

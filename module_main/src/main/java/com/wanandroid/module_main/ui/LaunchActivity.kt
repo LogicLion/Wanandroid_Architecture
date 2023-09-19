@@ -4,13 +4,13 @@ import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
-import com.wanandroid.module_base.base.BaseActivity
-import com.wanandroid.module_base.base.BaseViewModel
 import com.doreamon.treasure.ext.startTargetActivity
 import com.doreamon.treasure.utils.dip2px
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.ShapeAppearanceModel
+import com.wanandroid.module_base.base.BaseActivity
+import com.wanandroid.module_base.base.DataBindingConfig
 import com.wanandroid.module_main.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -19,8 +19,8 @@ import kotlinx.coroutines.launch
  * @author wzh
  * @date 2023/5/18
  */
-class LaunchActivity : BaseActivity<BaseViewModel>() {
-    override fun setupLayoutId() = R.layout.main_activity_launch
+class LaunchActivity : BaseActivity() {
+    override fun getDataBindingConfig() = DataBindingConfig(R.layout.main_activity_launch)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

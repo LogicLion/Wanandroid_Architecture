@@ -3,9 +3,9 @@ package com.wanandroid.module_main.ui
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.wanandroid.module_base.base.BaseActivity
-import com.wanandroid.module_base.base.BaseViewModel
 import com.wanandroid.module_base.arouter.api.ModuleMineAPI
+import com.wanandroid.module_base.base.BaseActivity
+import com.wanandroid.module_base.base.DataBindingConfig
 import com.wanandroid.module_main.R
 import com.wanandroid.module_main.databinding.MainActivityMainBinding
 import com.wanandroid.module_main.ui.home.HomeFragment
@@ -14,8 +14,8 @@ import com.wanandroid.module_main.ui.home.HomeFragment
  * @author wzh
  * @date 2023/5/22
  */
-class MainActivity : BaseActivity<BaseViewModel>() {
-    override fun setupLayoutId() = R.layout.main_activity_main
+class MainActivity : BaseActivity() {
+    override fun getDataBindingConfig() = DataBindingConfig(R.layout.main_activity_main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
