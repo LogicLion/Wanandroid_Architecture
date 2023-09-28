@@ -1,4 +1,4 @@
-package com.wanandroid.module_main.entity
+package com.wanandroid.module_base.entity
 
 import androidx.databinding.ObservableBoolean
 import com.doreamon.treasure.ext.orFalse

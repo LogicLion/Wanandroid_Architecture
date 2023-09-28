@@ -13,12 +13,26 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.launcher.ARouter
+import org.koin.android.scope.AndroidScopeComponent
+import org.koin.androidx.scope.ScopeFragment
+import org.koin.androidx.scope.fragmentScope
+import org.koin.core.scope.Scope
 
 /**
+ *
  * @author wzh
  * @date 2022/2/23
+ *
  */
-abstract class DataBindingFragment : Fragment() {
+abstract class DataBindingFragment : Fragment(), AndroidScopeComponent {
+
+    /**
+     * AndroidScopeComponent是定义koin依赖注入对象的作用域而设置的
+     * scope的值表示作用域
+     *
+     */
+    override val scope: Scope by fragmentScope()
+
     private lateinit var mActivityProvider: ViewModelProvider
 
     /** 根布局对象 */

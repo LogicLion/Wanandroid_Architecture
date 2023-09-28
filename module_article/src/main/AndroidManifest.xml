@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wanandroid.module_article">
+
+    <application>
+        <meta-data
+            android:name="com.wanandroid.module_article.base.ArticleApp"
+            android:value="ApplicationDelegate" />
+    </application>
+</manifest>

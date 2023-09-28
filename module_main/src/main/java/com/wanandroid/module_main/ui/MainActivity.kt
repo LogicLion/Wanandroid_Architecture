@@ -27,7 +27,9 @@ class MainActivity : BaseActivity() {
 
             override fun createFragment(position: Int): Fragment {
                 return when (position) {
+                    1 -> ModuleMineAPI.getSquareFragment()
                     3 -> ModuleMineAPI.getMineFragment()
+
                     else -> HomeFragment()
                 }
             }
@@ -37,6 +39,7 @@ class MainActivity : BaseActivity() {
 
             when (item.itemId) {
                 R.id.menu_my -> binding.viewPager.setCurrentItem(3, false)
+                R.id.menu_topic -> binding.viewPager.setCurrentItem(1, false)
                 else -> binding.viewPager.setCurrentItem(0, false)
             }
             return@setOnItemSelectedListener true

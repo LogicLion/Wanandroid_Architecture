@@ -11,13 +11,25 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.launcher.ARouter
+import org.koin.android.scope.AndroidScopeComponent
+import org.koin.androidx.scope.activityScope
+import org.koin.androidx.scope.fragmentScope
+import org.koin.core.scope.Scope
 
 
-abstract class DataBindingActivity : AppCompatActivity() {
+abstract class DataBindingActivity : AppCompatActivity(), AndroidScopeComponent {
     private lateinit var mActivityProvider: ViewModelProvider
     private var mFactory: ViewModelProvider.Factory? = null
     private var mBinding: ViewDataBinding? = null
     protected val TAG = this.javaClass.simpleName
+
+
+    /**
+     * AndroidScopeComponent是定义koin依赖注入对象的作用域而设置的
+     * scope的值表示作用域
+     *
+     */
+    override val scope: Scope by activityScope()
 
     protected abstract fun getDataBindingConfig(): DataBindingConfig
 

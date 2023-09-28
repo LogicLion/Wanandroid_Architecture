@@ -1,7 +1,6 @@
 package com.wanandroid.module_base.base
 
 import android.util.SparseArray
-import androidx.lifecycle.ViewModel
 
 /**
  * @author wzh

@@ -1,11 +1,10 @@
-package com.wanandroid.module_main.di
+package com.wanandroid.module_article.di
 
+import com.wanandroid.module_article.net.ArticleRepository
+import com.wanandroid.module_article.net.NetService
+import com.wanandroid.module_article.ui.SquareFragment
+import com.wanandroid.module_article.ui.SquareViewModel
 import com.wanandroid.module_base.net.RetrofitManager
-import com.wanandroid.module_main.net.MainRepository
-import com.wanandroid.module_main.net.NetService
-import com.wanandroid.module_main.ui.MainActivity
-import com.wanandroid.module_main.ui.home.HomeFragment
-import com.wanandroid.module_main.ui.home.HomeViewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -92,14 +91,14 @@ val netService: Module = module {
  * 数据仓库
  */
 val repositoryModule: Module = module {
-    single { MainRepository(get()) }
+    single { ArticleRepository(get()) }
 }
 
 val viewModelModule: Module = module {
 
-    scope<HomeFragment> {
+    scope<SquareFragment> {
         scoped {
-            HomeViewModel(get())
+            SquareViewModel(get())
         }
     }
 }

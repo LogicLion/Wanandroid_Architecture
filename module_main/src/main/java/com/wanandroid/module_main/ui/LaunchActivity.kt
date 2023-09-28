@@ -35,19 +35,14 @@ class LaunchActivity : BaseActivity() {
                     .build()
 
             shapeAppearanceModel = shapeModel
-            strokeColor =
-                ColorStateList.valueOf(
-                    getColor(R.color.main_purple_200)
-                )
+            strokeColor = ColorStateList.valueOf(getColor(R.color.main_purple_200))
             strokeWidth = dip2px(3)
         }
 
 
         lifecycleScope.launch {
             delay(500)
-
             startTargetActivity<MainActivity>()
-
             finish()
         }
 

@@ -1,8 +1,8 @@
 package com.wanandroid.module_main.net
 
+import com.wanandroid.module_base.entity.ArticleEntity
 import com.wanandroid.module_base.entity.NetListResult
 import com.wanandroid.module_base.entity.NetResult
-import com.wanandroid.module_main.entity.ArticleEntity
 import com.wanandroid.module_main.entity.HomeBannerEntity
 import retrofit2.http.GET
 import retrofit2.http.Path

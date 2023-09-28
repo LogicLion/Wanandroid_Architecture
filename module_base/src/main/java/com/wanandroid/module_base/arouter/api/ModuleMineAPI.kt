@@ -21,7 +21,17 @@ object ModuleMineAPI {
      */
     const val ROUTER_PATH_USER_INFO = "/user/userInfo"
 
+    /**
+     * 广场
+     */
+    const val ROUTER_PATH_SQUARE = "/article/square"
+
     fun getMineFragment(): Fragment {
         return ARouter.getInstance().build(ROUTER_MINE_MINE_FRAGMENT).navigation() as Fragment
+    }
+
+
+    fun getSquareFragment(): Fragment {
+        return ARouter.getInstance().build(ROUTER_PATH_SQUARE).navigation() as Fragment
     }
 }

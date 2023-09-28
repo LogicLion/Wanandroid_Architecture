@@ -2,7 +2,7 @@ package com.wanandroid.module_main.ui.home
 
 import androidx.lifecycle.MutableLiveData
 import com.wanandroid.module_base.base.BaseViewModel
-import com.wanandroid.module_main.entity.ArticleEntity
+import com.wanandroid.module_base.entity.ArticleEntity
 import com.wanandroid.module_main.entity.HomeBannerEntity
 import com.wanandroid.module_main.net.MainRepository
 import kotlinx.coroutines.async
@@ -29,18 +29,14 @@ class HomeViewModel(private val repository: MainRepository) : BaseViewModel() {
      * 获取banner数据+文章列表第一页的数据
      */
     fun requestHomeData() = launchRequest {
+        val banner = async { repository.getHomepageBannerList() }
+        val articleList = async { repository.getHomepageArticleList(0) }
 
-        val banner = async {
-            repository.getHomepageBannerList() }
-        val articleList = async {
-            repository.getHomepageArticleList(0)
-        }
         if (banner.await().isNotEmpty() && articleList.await().datas != null) {
             homeEntity.value = banner.await()
             articleListEntity.value = articleList.await().datas
             pageIndex = 0
         }
-
     }
 
     fun requestHomeArticleList() = launchRequest {
