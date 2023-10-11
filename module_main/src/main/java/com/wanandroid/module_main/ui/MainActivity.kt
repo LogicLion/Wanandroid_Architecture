@@ -8,7 +8,6 @@ import com.wanandroid.module_base.base.BaseActivity
 import com.wanandroid.module_base.base.DataBindingConfig
 import com.wanandroid.module_main.R
 import com.wanandroid.module_main.databinding.MainActivityMainBinding
-import com.wanandroid.module_main.ui.home.HomeFragment
 
 /**
  * @author wzh
@@ -28,9 +27,10 @@ class MainActivity : BaseActivity() {
             override fun createFragment(position: Int): Fragment {
                 return when (position) {
                     1 -> ModuleMineAPI.getSquareFragment()
+                    2 -> ModuleMineAPI.getProjectFragment()
                     3 -> ModuleMineAPI.getMineFragment()
 
-                    else -> HomeFragment()
+                    else -> ModuleMineAPI.getHomeFragment()
                 }
             }
         }
@@ -38,11 +38,13 @@ class MainActivity : BaseActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
 
             when (item.itemId) {
-                R.id.menu_my -> binding.viewPager.setCurrentItem(3, false)
                 R.id.menu_topic -> binding.viewPager.setCurrentItem(1, false)
+                R.id.menu_project -> binding.viewPager.setCurrentItem(2, false)
+                R.id.menu_my -> binding.viewPager.setCurrentItem(3, false)
                 else -> binding.viewPager.setCurrentItem(0, false)
             }
             return@setOnItemSelectedListener true
         }
+
     }
 }

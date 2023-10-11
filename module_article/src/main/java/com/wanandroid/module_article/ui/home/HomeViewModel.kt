@@ -1,17 +1,17 @@
-package com.wanandroid.module_main.ui.home
+package com.wanandroid.module_article.ui.home
 
 import androidx.lifecycle.MutableLiveData
+import com.wanandroid.module_article.entity.ArticleEntity
+import com.wanandroid.module_article.entity.HomeBannerEntity
+import com.wanandroid.module_article.net.ArticleRepository
 import com.wanandroid.module_base.base.BaseViewModel
-import com.wanandroid.module_base.entity.ArticleEntity
-import com.wanandroid.module_main.entity.HomeBannerEntity
-import com.wanandroid.module_main.net.MainRepository
 import kotlinx.coroutines.async
 
 /**
  * @author wzh
  * @date 2023/5/30
  */
-class HomeViewModel(private val repository: MainRepository) : BaseViewModel() {
+class HomeViewModel(private val repository: ArticleRepository) : BaseViewModel() {
 
 
     val homeEntity by lazy { MutableLiveData<List<HomeBannerEntity>>() }

@@ -1,34 +1,38 @@
-package com.wanandroid.module_main.ui.home
+package com.wanandroid.module_article.ui.home
 
+import com.alibaba.android.arouter.facade.annotation.Route
+import com.wanandroid.module_article.BR
+import com.wanandroid.module_article.R
+import com.wanandroid.module_article.databinding.ArticleFragmentHomeBinding
+import com.wanandroid.module_article.ui.square.ArticleAdapter
+import com.wanandroid.module_base.arouter.api.ModuleMineAPI
 import com.wanandroid.module_base.base.BaseFragment
 import com.wanandroid.module_base.base.DataBindingConfig
-import com.wanandroid.module_main.BR
-import com.wanandroid.module_main.R
-import com.wanandroid.module_main.databinding.MainFragmentHomeBinding
 import org.koin.android.ext.android.inject
 
 /**
  * @author wzh
  * @date 2023/5/24
  */
+@Route(path = ModuleMineAPI.ROUTER_PATH_HOME)
 class HomeFragment : BaseFragment() {
 
     val viewModel: HomeViewModel by inject()
 
     override fun getDataBindingConfig() =
-        DataBindingConfig(R.layout.main_fragment_home, BR.viewModel, viewModel)
+        DataBindingConfig(R.layout.article_fragment_home, BR.viewModel, viewModel)
 
 
     private val bannerAdapter: HomePagerAdapter by lazy {
         HomePagerAdapter()
     }
 
-    private val articleAdapter: HomeArticleAdapter by lazy {
-        HomeArticleAdapter()
+    private val articleAdapter: ArticleAdapter by lazy {
+        ArticleAdapter()
     }
 
     override fun initView() {
-        val binding = getViewBinding<MainFragmentHomeBinding>()
+        val binding = getViewBinding<ArticleFragmentHomeBinding>()
 
         binding.appbarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
             if (viewModel.isRefreshing.value == false) {

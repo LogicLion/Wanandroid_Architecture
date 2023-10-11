@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.wanandroid.module_base.base.BaseListViewModel" />
+    </data>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         bind_swipeRefreshLayout_refreshing="@={viewModel.isRefreshing}"
         android:layout_width="match_parent"
@@ -14,12 +20,4 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.wanandroid.module_article.ui.square.SquareViewModel" />
-
-    </data>
 </layout>

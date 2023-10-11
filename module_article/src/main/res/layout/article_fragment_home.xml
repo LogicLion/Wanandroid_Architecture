@@ -55,7 +55,7 @@
 
         <variable
             name="viewModel"
-            type="com.wanandroid.module_main.ui.home.HomeViewModel" />
+            type="com.wanandroid.module_article.ui.home.HomeViewModel" />
     </data>
 
 

@@ -3,9 +3,6 @@ package com.wanandroid.module_main.di
 import com.wanandroid.module_base.net.RetrofitManager
 import com.wanandroid.module_main.net.MainRepository
 import com.wanandroid.module_main.net.NetService
-import com.wanandroid.module_main.ui.MainActivity
-import com.wanandroid.module_main.ui.home.HomeFragment
-import com.wanandroid.module_main.ui.home.HomeViewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -97,9 +94,4 @@ val repositoryModule: Module = module {
 
 val viewModelModule: Module = module {
 
-    scope<HomeFragment> {
-        scoped {
-            HomeViewModel(get())
-        }
-    }
 }

@@ -2,8 +2,14 @@ package com.wanandroid.module_article.di
 
 import com.wanandroid.module_article.net.ArticleRepository
 import com.wanandroid.module_article.net.NetService
-import com.wanandroid.module_article.ui.SquareFragment
-import com.wanandroid.module_article.ui.SquareViewModel
+import com.wanandroid.module_article.ui.home.HomeFragment
+import com.wanandroid.module_article.ui.home.HomeViewModel
+import com.wanandroid.module_article.ui.project.ProjectFragment
+import com.wanandroid.module_article.ui.project.ProjectListFragment
+import com.wanandroid.module_article.ui.project.ProjectListViewModel
+import com.wanandroid.module_article.ui.project.ProjectViewModel
+import com.wanandroid.module_article.ui.square.SquareFragment
+import com.wanandroid.module_article.ui.square.SquareViewModel
 import com.wanandroid.module_base.net.RetrofitManager
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -99,6 +105,24 @@ val viewModelModule: Module = module {
     scope<SquareFragment> {
         scoped {
             SquareViewModel(get())
+        }
+    }
+
+    scope<HomeFragment> {
+        scoped {
+            HomeViewModel(get())
+        }
+    }
+
+    scope<ProjectFragment> {
+        scoped {
+            ProjectViewModel(get())
+        }
+    }
+
+    scope<ProjectListFragment> {
+        scoped {
+            ProjectListViewModel(get())
         }
     }
 }

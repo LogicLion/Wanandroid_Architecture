@@ -1,4 +1,4 @@
-package com.wanandroid.module_main.entity
+package com.wanandroid.module_article.entity
 
 /**
  * @author wzh

@@ -1,19 +1,19 @@
-package com.wanandroid.module_main.ui.home
+package com.wanandroid.module_article.ui.square
 
 import android.view.View
 import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.wanandroid.module_base.entity.ArticleEntity
-import com.wanandroid.module_main.R
+import com.wanandroid.module_article.R
+import com.wanandroid.module_article.entity.ArticleEntity
 
 /**
  * @author wzh
  * @date 2023/6/13
  */
-class HomeArticleAdapter :
-    BaseQuickAdapter<ArticleEntity, BaseViewHolder>(R.layout.main_item_home_article),
+class ArticleAdapter :
+    BaseQuickAdapter<ArticleEntity, BaseViewHolder>(R.layout.article_item_article),
     LoadMoreModule {
     override fun convert(holder: BaseViewHolder, item: ArticleEntity) {
         holder.setText(R.id.tv_article_title, item.title)
