@@ -5,7 +5,7 @@
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"
-        bind_swipeRefreshLayout_refreshing="@={viewModel.isRefreshing}"
+        app:bind_swipeRefreshLayout_refreshing="@={viewModel.isRefreshing}"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

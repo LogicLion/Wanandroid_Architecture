@@ -41,7 +41,7 @@ data class ArticleEntity(
     val author: String? = "",
     val chapterId: String? = "",
     val chapterName: String? = "",
-    val collect: String? = "",
+    val collect: Boolean = false,
     val courseId: String? = "",
     val desc: String? = "",
     val envelopePic: String? = "",

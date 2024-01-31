@@ -5,5 +5,5 @@ package com.wanandroid.module_article.entity
  * @author wzh
  * @date 2023/10/9
  */
-data class ProjectTreeEntity(val id: String, val name: String) : java.io.Serializable {
+data class ProjectTreeEntity(val id: Int, val name: String) : java.io.Serializable {
 }

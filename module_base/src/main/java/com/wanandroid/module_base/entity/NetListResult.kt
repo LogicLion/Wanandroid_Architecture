@@ -17,7 +17,7 @@ import java.io.Serializable
 data class NetListResult<T>(
     val curPage: Int = 0,
     val offset: String? = "",
-    val pageCount: String? = "",
+    val pageCount: Int = 0,
     val size: String? = "",
     val total: String? = "",
     val over: String? = "",

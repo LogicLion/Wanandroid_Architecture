@@ -17,5 +17,8 @@ class SquareFragment : BaseListFragment<ArticleEntity>() {
         ArticleAdapter()
     }
     override val viewModel: SquareViewModel by inject()
+    override fun updateList(pageIndex: Int) {
+        viewModel.requestList(pageIndex)
+    }
 
 }

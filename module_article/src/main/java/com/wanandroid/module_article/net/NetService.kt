@@ -8,6 +8,7 @@ import com.wanandroid.module_base.entity.NetResult
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 /**
  * @author wzh
@@ -39,6 +40,13 @@ interface NetService {
      */
     @GET("project/tree/json")
     suspend fun getProjectTree(): NetResult<List<ProjectTreeEntity>>
+
+
+    /**
+     * 项目-项目列表
+     */
+    @GET("project/list/{page}/json")
+    suspend fun getProjectList(@Path("page") page: Int, @Query("cid") cid: Int): NetResult<NetListResult<ArticleEntity>>
 
 
 

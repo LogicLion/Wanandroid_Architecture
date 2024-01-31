@@ -32,11 +32,12 @@ class ProjectFragment : BaseFragment() {
         val tabLayout = binding.tabLayout
         val viewPager = binding.viewPager
 
-        val adapter = object : FragmentStateAdapter(requireActivity()) {
+        //这里FragmentStateAdapter的传参一定要传fragment，而不是宿主Activity
+        val adapter = object : FragmentStateAdapter(this) {
             override fun getItemCount() = projectTreeList.size
 
             override fun createFragment(position: Int): Fragment {
-                return ProjectListFragment()
+                return ProjectListFragment.newInstance(projectTreeList[position].id)
             }
         }
 
@@ -53,5 +54,6 @@ class ProjectFragment : BaseFragment() {
             projectTreeList.addAll(it)
             adapter.notifyDataSetChanged()
         }
+
     }
 }

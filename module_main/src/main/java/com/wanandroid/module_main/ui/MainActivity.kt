@@ -1,8 +1,10 @@
 package com.wanandroid.module_main.ui
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.doreamon.treasure.ext.toast
 import com.wanandroid.module_base.arouter.api.ModuleMineAPI
 import com.wanandroid.module_base.base.BaseActivity
 import com.wanandroid.module_base.base.DataBindingConfig
@@ -14,6 +16,7 @@ import com.wanandroid.module_main.databinding.MainActivityMainBinding
  * @date 2023/5/22
  */
 class MainActivity : BaseActivity() {
+    private var lastPressBackTime: Long = 0L
     override fun getDataBindingConfig() = DataBindingConfig(R.layout.main_activity_main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,5 +49,20 @@ class MainActivity : BaseActivity() {
             return@setOnItemSelectedListener true
         }
 
+
+        val dispatcher = onBackPressedDispatcher
+        dispatcher.addCallback(object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                //返回键处理
+                if (System.currentTimeMillis() - lastPressBackTime > 1000) {
+                    "再按一次退出".toast()
+                    lastPressBackTime = System.currentTimeMillis()
+                } else {
+                    finish()
+                }
+            }
+        })
     }
+
+
 }

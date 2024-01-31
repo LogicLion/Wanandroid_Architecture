@@ -23,4 +23,8 @@ class ArticleRepository(private val netService: NetService) {
     suspend fun getProjectTree() = netRequest {
         netService.getProjectTree()
     }
+
+    suspend fun getProjectList(pageIndex: Int, tabId: Int) = netRequest {
+        netService.getProjectList(pageIndex, tabId)
+    }
 }
