@@ -36,6 +36,7 @@ abstract class BaseListFragment<T> : BaseFragment() {
             updateList(pageIndex)
         }
 
+
         //注意：主动把isRefreshing设置为true并不会触发setOnRefreshListener的调用
         binding.refreshLayout.isRefreshing = true
         pageIndex = startPageIndex

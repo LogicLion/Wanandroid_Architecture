@@ -34,15 +34,16 @@ class HomeFragment : BaseFragment() {
     override fun initView() {
         val binding = getViewBinding<ArticleFragmentHomeBinding>()
 
-        binding.appbarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
-            if (viewModel.isRefreshing.value == false) {
-                binding.swipeRefreshLayout.isEnabled = verticalOffset >= 0
-            }
-        }
+//        binding.appbarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
+//            if (viewModel.isRefreshing.value == false) {
+//                binding.swipeRefreshLayout.isEnabled = verticalOffset >= 0
+//            }
+//        }
 
         binding.viewPager.adapter = bannerAdapter
         binding.rvHomeArticle.adapter = articleAdapter
 
+        binding.swipeRefreshLayout.isEnabled = false
         viewModel.isRefreshing.value = true
         viewModel.isRefreshing.observe(viewLifecycleOwner) {
             if (it) viewModel.requestHomeData()
