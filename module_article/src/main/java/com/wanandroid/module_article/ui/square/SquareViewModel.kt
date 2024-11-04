@@ -5,6 +5,9 @@ import com.wanandroid.module_article.entity.ArticleEntity
 import com.wanandroid.module_article.net.ArticleRepository
 import com.wanandroid.module_base.base.BaseListViewModel
 import com.wanandroid.module_base.entity.NetListResult
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 /**
  * @author wzh
@@ -21,5 +24,12 @@ class SquareViewModel(private val repository: ArticleRepository) :
         listEntity.value = repository.getSquareArticleList(pageIndex)
     }
 
+
+    fun coldFlow(): Flow<Int> = flow {
+        for (i in 1..5) {
+            delay(1000) // 模拟耗时操作
+            emit(i) // 发射数据
+        }
+    }
 
 }
